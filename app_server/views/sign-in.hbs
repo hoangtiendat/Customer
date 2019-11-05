@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>WebUni - Education Template</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="WebUni Education Template">
+	<meta name="keywords" content="webuni, education, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!-- 	<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="../css/owl.carousel.css"/>
+	<link rel="stylesheet" href="../css/style.css"/> -->
+	<link rel="stylesheet" href="css/sign-in.css"/>
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div class="sign-in-up-form">
+	<ul class="tab-group">
+			<li class="tab active"><a href="#login">Sign In</a></li>
+			<li class="tab"><a href="#signup">Sign Up</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div id="login">
+			<h1>All ready have an Account?<br />Welcome back!</h1>
+
+			<form action="/index" method="post">
+				<div class="field-wrap">
+					<label id="label_userEmail">Email Address<span class="req">*</span></label>
+					<input type="email" name="userEmail" id="userEmail" autocomplete="off" />
+				</div>
+
+				<div class="field-wrap">
+					<label id="label_userPass">Password<span class="req">*</span></label>
+					<input type="password" name="userPass" id="userPass" autocomplete="off" />
+				</div>
+
+				<p class="forgot resetPass"><a data-toggle="modal" href="#resetPassword">Forgot Password?</a></p>
+				<button class="button button-block" />Sign Me In</button>
+			</form>
+		</div>
+
+		<div id="signup">
+			<h1>Don't have an Account?<br />Sign Up today!</h1>
+
+			<form action="/index" method="post">
+				<div class="field-wrap">
+					<label id="label_signupNickname">Nickname<span class="req">*</span></label>
+					<input type="text" name="signupNickname" id="signupNickname" autocomplete="off" />
+				</div>
+
+				<div class="field-wrap">
+					<label id="label_signupEmail">Email Address<span class="req">*</span></label>
+					<input type="email" name="signupEmail" id="signupEmail" autocomplete="off" />
+				</div>
+
+				<div class="top-row">
+					<div class="field-wrap">
+						<label id="label_signupPass">Password<span class="req">*</span></label>
+						<input type="password" name="signupPass" id="signupPass" autocomplete="off" />
+					</div>
+
+					<div class="field-wrap">
+						<label id="label_signupPass_r">Repeat Password<span class="req">*</span></label>
+						<input type="password" name="signupPass_r" id="signupPass_r" autocomplete="off" />
+					</div>
+				</div>
+
+				<button type="submit" class="button button-block" />Get Started</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+				<h4 class="modal-title">Reset Your Account Password</h3>
+				</div>
+				<form action="" method="post">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="accountEmail">Account Email</label>
+							<input type="email" class="form-control" required="required" name="accountEmail" value="" />
+							<span class="help-block">The email address associated with your Account.</span>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-sm btn-icon" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+						<button type="input" name="submit" value="resetPass" class="btn btn-success btn-sm btn-icon" ><a href="/sign_in"><i class="fa fa-check-square-o"></i> Reset Passwords</a></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+	$('#userEmail, #userPass, #signupNickname, #signupEmail, #signupPass, #signupPass_r').val('');
+	
+	$('#userEmail').on('click keyup blur focus', function(e) {
+		$('#label_userEmail').addClass('active highlight');
+	});
+	$('#userEmail').blur(function() {
+		if ($('#userEmail').val() === '') {
+			$('#label_userEmail').removeClass('active highlight');
+		} else {
+			$('#label_userEmail').addClass('active highlight');
+		}
+		
+		if ($('#userPass').val() === '') {
+			$('#label_userPass').removeClass('active highlight');
+		} else {
+			$('#label_userPass').addClass('active highlight');
+		}
+	});
+	
+	$('#userPass').on('click keyup blur focus', function(e) {
+		$('#label_userPass').addClass('active highlight');
+	});
+	$('#userPass').blur(function() {
+		if ($('#userPass').val() === '') {
+			$('#label_userPass').removeClass('active highlight');
+		} else {
+			$('#label_userPass').addClass('active highlight');
+		}
+		
+		if ($('#userEmail').val() === '') {
+			$('#label_userEmail').removeClass('active highlight');
+		} else {
+			$('#label_userEmail').addClass('active highlight');
+		}
+	});
+	
+	$('#signupNickname').on('click keyup blur focus', function(e) {
+		$('#label_signupNickname').addClass('active highlight');
+	});
+	$('#signupNickname').blur(function() {
+		if ($('#signupNickname').val() === '') {
+			$('#label_signupNickname').removeClass('active highlight');
+		} else {
+			$('#label_signupNickname').addClass('active highlight');
+		}
+		
+		if ($('#signupEmail').val() === '') {
+			$('#label_signupEmail').removeClass('active highlight');
+		} else {
+			$('#label_signupEmail').addClass('active highlight');
+		}
+		
+		if ($('#signupPass').val() === '') {
+			$('#label_signupPass').removeClass('active highlight');
+		} else {
+			$('#label_signupPass').addClass('active highlight');
+		}
+		
+		if ($('#signupPass_r').val() === '') {
+			$('#label_signupPass_r').removeClass('active highlight');
+		} else {
+			$('#label_signupPass_r').addClass('active highlight');
+		}
+	});
+	
+	$('#signupEmail').on('click keyup blur focus', function(e) {
+		$('#label_signupEmail').addClass('active highlight');
+	});
+	$('#signupEmail').blur(function() {
+		if ($('#signupEmail').val() === '') {
+			$('#label_signupEmail').removeClass('active highlight');
+		} else {
+			$('#label_signupEmail').addClass('active highlight');
+		}
+		
+		if ($('#signupNickname').val() === '') {
+			$('#label_signupNickname').removeClass('active highlight');
+		} else {
+			$('#label_signupNickname').addClass('active highlight');
+		}
+		
+		if ($('#signupPass').val() === '') {
+			$('#label_signupPass').removeClass('active highlight');
+		} else {
+			$('#label_signupPass').addClass('active highlight');
+		}
+		
+		if ($('#signupPass_r').val() === '') {
+			$('#label_signupPass_r').removeClass('active highlight');
+		} else {
+			$('#label_signupPass_r').addClass('active highlight');
+		}
+	});
+	
+	$('#signupPass').on('click keyup blur focus', function(e) {
+		$('#label_signupPass').addClass('active highlight');
+	});
+	$('#signupPass').blur(function() {
+		if ($('#signupPass').val() === '') {
+			$('#label_signupPass').removeClass('active highlight');
+		} else {
+			$('#label_signupPass').addClass('active highlight');
+		}
+	});
+	
+	$('#signupPass_r').on('click keyup blur focus', function(e) {
+		$('#label_signupPass_r').addClass('active highlight');
+	});
+	$('#signupPass_r').blur(function() {
+		if ($('#signupPass_r').val() === '') {
+			$('#label_signupPass_r').removeClass('active highlight');
+		} else {
+			$('#label_signupPass_r').addClass('active highlight');
+		}
+	});
+
+	$('.tab a').on('click', function(e) {
+		e.preventDefault();
+
+		$(this).parent().addClass('active');
+		$(this).parent().siblings().removeClass('active');
+		target = $(this).attr('href');
+
+		$('.tab-content > div').not(target).hide();
+		$(target).fadeIn(600);
+	});
+});
+	</script>
+</body>
+</html>
